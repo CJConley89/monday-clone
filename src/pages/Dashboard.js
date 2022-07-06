@@ -4,12 +4,13 @@ import axios from 'axios';
 import CategoriesContext from '../context';
 
 const Dashboard = () => {
+    const url = process.env.URL;
     const [tickets, setTickets] = useState(null);
     const {cagetories, setCategories } = useContext(CategoriesContext);
 
     useEffect(() => {
         async function fetchData() {
-            const response = await axios.get('https://monday-clone-tau.vercel.app/tickets');
+            const response = await axios.get(`${url}`);
             const dataObject = response.data.data;
 
             const arrayOfKeys = Object.keys(dataObject);

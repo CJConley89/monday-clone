@@ -4,6 +4,7 @@ import axios from 'axios';
 import CategoriesContext from '../context';
 
 const TicketPage = ({editMode}) => {
+    const url = process.env.URL;
     const [formData, setFormData] = useState({
         status: 'ready',
         progress: 0,
@@ -19,7 +20,7 @@ const TicketPage = ({editMode}) => {
         e.preventDefault();
 
         if(editMode){
-            const response = await axios.put(`https://monday-clone-tau.vercel.app/tickets/${id}`, {
+            const response = await axios.put(`${url}/${id}`, {
                 data: formData
             })
             const success = response.status === 200;
@@ -29,7 +30,7 @@ const TicketPage = ({editMode}) => {
         }
 
         if(!editMode) {
-            const response = await axios.post('https://monday-clone-tau.vercel.app/tickets', {
+            const response = await axios.post(`${url}`, {
                 formData
             });
             const success = response.status === 200;
@@ -40,7 +41,7 @@ const TicketPage = ({editMode}) => {
     }
 
     const fetchData = async () => {
-        const response = await axios.get(`https://monday-clone-tau.vercel.app/tickets/${id}`);
+        const response = await axios.get(`${url}/${id}`);
         setFormData(response.data.data);
     }
 
