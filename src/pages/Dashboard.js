@@ -9,7 +9,7 @@ const Dashboard = () => {
 
     useEffect(() => {
         async function fetchData() {
-            const response = await axios.get('http://localhost:8000/tickets');
+            const response = await axios.get('https://monday-clone-tau.vercel.app/tickets');
             const dataObject = response.data.data;
 
             const arrayOfKeys = Object.keys(dataObject);

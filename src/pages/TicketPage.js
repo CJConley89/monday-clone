@@ -19,7 +19,7 @@ const TicketPage = ({editMode}) => {
         e.preventDefault();
 
         if(editMode){
-            const response = await axios.put(`http://localhost:8000/tickets/${id}`, {
+            const response = await axios.put(`https://monday-clone-tau.vercel.app/tickets/${id}`, {
                 data: formData
             })
             const success = response.status === 200;
@@ -29,7 +29,7 @@ const TicketPage = ({editMode}) => {
         }
 
         if(!editMode) {
-            const response = await axios.post('http://localhost:8000/tickets', {
+            const response = await axios.post('https://monday-clone-tau.vercel.app/tickets', {
                 formData
             });
             const success = response.status === 200;
@@ -40,7 +40,7 @@ const TicketPage = ({editMode}) => {
     }
 
     const fetchData = async () => {
-        const response = await axios.get(`http://localhost:8000/tickets/${id}`);
+        const response = await axios.get(`https://monday-clone-tau.vercel.app/tickets/${id}`);
         setFormData(response.data.data);
     }
 
