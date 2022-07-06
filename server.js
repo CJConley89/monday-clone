@@ -8,7 +8,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-const url = process.env.URL;
+const url = process.env.TASK_URL;
 const token = process.env.ASTRA_TOKEN;
 
 
