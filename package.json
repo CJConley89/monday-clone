@@ -11,7 +11,6 @@
     "cors": "^2.8.5",
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
-    "nodemon": "^2.0.18",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.3.0",
@@ -21,7 +20,7 @@
   "scripts": {
     "start": "node index.js",
     "start-frontend": "react-scripts start",
-    "start-backend": "nodemon server.js",
+    "start-backend": "node server.js",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
