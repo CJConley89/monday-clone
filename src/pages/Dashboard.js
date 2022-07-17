@@ -5,11 +5,11 @@ import CategoriesContext from '../context';
 
 const Dashboard = () => {
     const [tickets, setTickets] = useState(null);
-    const {setCategories } = useContext(CategoriesContext);
+    const {categories, setCategories } = useContext(CategoriesContext);
 
     useEffect(() => {
         async function fetchData() {
-            const response = await axios.get(`http://localhost:8000/tickets`);
+            const response = await axios.get(`/tickets`);
             const dataObject = response.data.data;
 
             const arrayOfKeys = Object.keys(dataObject);
