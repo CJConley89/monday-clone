@@ -117,4 +117,4 @@ app.put('/tickets/:documentId', async (req, res) => {
 
 
 
-app.listen(PORT, () => console.log('Server running on PORT ' + PORT));
+app.listen(PORT || 3000, () => console.log('Server running on PORT ' + PORT));
