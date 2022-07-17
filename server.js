@@ -1,3 +1,4 @@
+const PORT = process.env.PORT;
 const express = require('express');
 const cors = require('cors');
 require('dotenv').config();
@@ -116,4 +117,4 @@ app.put('/tickets/:documentId', async (req, res) => {
 
 
 
-app.listen(process.env.PORT || 3000, () => console.log('Server running on PORT ' + PORT));
+app.listen(PORT || 3000, () => console.log('Server running on PORT ' + PORT));
