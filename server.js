@@ -7,10 +7,19 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+//trying to get heroku deploy to work
+if (process.env.NODE_ENV === 'production') {
+	app.use(express.static('client/build'));
+}
+
 const PORT = process.env.PORT || 3001;
 const url = process.env.TASK_URL;
 const token = process.env.ASTRA_TOKEN;
 
+//trying to handle single static page app with dynamic routes
+app.get('*', (req, res) => {
+	response.sendFile(path.join(__dirname, 'client/build', 'index.js'));
+});
 
 app.get('/tickets', async (req, res) => {
     const options = {
